@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Canvas Art</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #282c34; /* Dark background */
+            color: #f0f0f0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FFD700; /* Gold */
+            font-weight: 300;
+        }
+
+        .canvas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            max-width: 960px;
+            margin: 20px auto;
+            justify-items: center;
+        }
+
+        .art-container {
+            background-color: #f0ead6; /* Parchment paper background */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            border: 1px solid #dcd0b6;
+            padding: 10px;
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .art-container:hover {
+            transform: translateY(-5px);
+        }
+
+        canvas {
+            display: block;
+            background-color: #f0ead6; /* Match container */
+            border-radius: 4px;
+        }
+        
+        p {
+            text-align: center;
+            color: #4a4a4a;
+            font-weight: 600;
+            margin: 8px 0 0 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Chinese-Themed Canvas Art</h1>
+
+    <div class="canvas-grid">
+        
+        <div class="art-container">
+            <canvas id="canvas1" width="200" height="200"></canvas>
+            <p>Yin Yang</p>
+        </div>
+        
+        <div class="art-container">
+            <canvas id="canvas2" width="200" height="200"></canvas>
+            <p>Paper Lantern</p>
+        </div>
+
+        <div class="art-container">
+            <canvas id="canvas3" width="200" height="200"></canvas>
+            <p>Bamboo</p>
+        </div>
+
+        <div class="art-container">
+            <canvas id="canvas4" width="200" height="200"></canvas>
+            <p>Plum Blossom</p>
+        </div>
+
+        <div class="art-container">
+            <canvas id="canvas5" width="200" height="200"></canvas>
+            <p>Ancient Coin</p>
+        </div>
+
+        <div class="art-container">
+            <canvas id="canvas6" width="200" height="200"></canvas>
+            <p>Hand Fan</p>
+        </div>
+
+        <div class="art-container">
+            <canvas id="canvas7" width="200" height="200"></canvas>
+            <p>Moon Gate</p>
+        </div>
+
+        <div class="art-container">
+            <canvas id="canvas8" width="200" height="200"></canvas>
+            <p>Mountain (山)</p>
+        </div>
+
+    </div>
+
+    <script>
+        window.onload = function() {
+            // Get all contexts
+            const ctx1 = document.getElementById('canvas1').getContext('2d');
+            const ctx2 = document.getElementById('canvas2').getContext('2d');
+            const ctx3 = document.getElementById('canvas3').getContext('2d');
+            const ctx4 = document.getElementById('canvas4').getContext('2d');
+            const ctx5 = document.getElementById('canvas5').getContext('2d');
+            const ctx6 = document.getElementById('canvas6').getContext('2d');
+            const ctx7 = document.getElementById('canvas7').getContext('2d');
+            const ctx8 = document.getElementById('canvas8').getContext('2d');
+
+            // Draw all arts
+            drawYinYang(ctx1);
+            drawLantern(ctx2);
+            drawBamboo(ctx3);
+            drawBlossom(ctx4);
+            drawCoin(ctx5);
+            drawFan(ctx6);
+            drawMoonGate(ctx7);
+            drawMountain(ctx8);
+        };
+
+        // Art 1: Yin Yang
+        function drawYinYang(ctx) {
+            const x = 100, y = 100, r = 90;
+
+            // Black half
+            ctx.fillStyle = '#333';
+            ctx.beginPath();
+            ctx.arc(x, y, r, Math.PI / 2, -Math.PI / 2, false);
+            ctx.fill();
+
+            // White half
+            ctx.fillStyle = '#fff';
+            ctx.beginPath();
+            ctx.arc(x, y, r, -Math.PI / 2, Math.PI / 2, false);
+            ctx.fill();
+
+            // Black inner circle (on white side)
+            ctx.fillStyle = '#333';
+            ctx.beginPath();
+            ctx.arc(x, y - r / 2, r / 2, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // White inner circle (on black side)
+            ctx.fillStyle = '#fff';
+            ctx.beginPath();
+            ctx.arc(x, y + r / 2, r / 2, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // White "eye"
+            ctx.fillStyle = '#fff';
+            ctx.beginPath();
+            ctx.arc(x, y - r / 2, r / 6, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // Black "eye"
+            ctx.fillStyle = '#333';
+            ctx.beginPath();
+            ctx.arc(x, y + r / 2, r / 6, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // Outer border
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, 2 * Math.PI);
+            ctx.stroke();
+        }
+
+        // Art 2: Paper Lantern
+        function drawLantern(ctx) {
+            const x = 100, y = 100, r = 70;
+            const gold = '#DAA520';
+            const red = '#D22B2B';
+
+            // Gold caps
+            ctx.fillStyle = gold;
+            ctx.fillRect(x - 40, y - r - 10, 80, 15); // Top cap
+            ctx.fillRect(x - 40, y + r - 5, 80, 15); // Bottom cap
+
+            // Lantern body (oval)
+            ctx.fillStyle = red;
+            ctx.strokeStyle = gold;
+            ctx.lineWidth = 2;
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.scale(1, 1.1); // Make it taller than wide
+            ctx.beginPath();
+            ctx.arc(0, 0, r, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.stroke();
+            ctx.restore();
+
+            // Gold bands on body
+            ctx.beginPath();
+            ctx.moveTo(x, y - r - 5);
+            ctx.quadraticCurveTo(x + 40, y, x, y + r + 5);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x, y - r - 5);
+            ctx.quadraticCurveTo(x - 40, y, x, y + r + 5);
+            ctx.stroke();
+
+            // Tassel
+            ctx.strokeStyle = gold;
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(x, y + r + 10);
+            ctx.lineTo(x, y + r + 30);
+            ctx.stroke();
+            
+            ctx.fillStyle = gold;
+            ctx.fillRect(x - 15, y + r + 30, 30, 8);
+        }
+
+        // Art 3: Bamboo
+        function drawBamboo(ctx) {
+            const green = '#347C2C';
+            const darkGreen = '#23531E';
+            
+            ctx.strokeStyle = darkGreen;
+            ctx.fillStyle = green;
+            ctx.lineWidth = 4;
+
+            // Stalk 1
+            ctx.fillRect(60, 20, 30, 160);
+            ctx.strokeRect(60, 20, 30, 160);
+            ctx.beginPath();
+            ctx.moveTo(60, 80); ctx.lineTo(90, 80); // Joint
+            ctx.moveTo(60, 140); ctx.lineTo(90, 140); // Joint
+            ctx.stroke();
+
+            // Stalk 2
+            ctx.fillRect(110, 40, 25, 140);
+            ctx.strokeRect(110, 40, 25, 140);
+            ctx.beginPath();
+            ctx.moveTo(110, 100); ctx.lineTo(135, 100); // Joint
+            ctx.stroke();
+
+            // Leaves
+            ctx.fillStyle = green;
+            ctx.strokeStyle = darkGreen;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(90, 80);
+            ctx.quadraticCurveTo(110, 70, 130, 50);
+            ctx.quadraticCurveTo(115, 70, 90, 80);
+            ctx.fill();
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(90, 80);
+            ctx.quadraticCurveTo(110, 90, 140, 90);
+            ctx.quadraticCurveTo(115, 90, 90, 80);
+            ctx.fill();
+            ctx.stroke();
+        }
+
+        // Art 4: Plum Blossom
+        function drawBlossom(ctx) {
+            // Branch
+            ctx.strokeStyle = '#5C2C06';
+            ctx.lineWidth = 10;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(10, 190);
+            ctx.bezierCurveTo(40, 120, 140, 100, 190, 40);
+            ctx.stroke();
+
+            // Helper function for a 5-petal flower
+            function drawFlower(x, y) {
+                ctx.fillStyle = '#FFC0CB'; // Pink
+                ctx.strokeStyle = '#E0B0B8';
+                ctx.lineWidth = 1;
+                for (let i = 0; i < 5; i++) {
+                    const angle = (i / 5) * 2 * Math.PI;
+                    const fx = x + Math.cos(angle) * 10;
+                    const fy = y + Math.sin(angle) * 10;
+                    ctx.beginPath();
+                    ctx.arc(fx, fy, 6, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.stroke();
+                }
+                // Center
+                ctx.fillStyle = '#FFD700'; // Yellow
+                ctx.beginPath();
+                ctx.arc(x, y, 5, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+
+            // Draw flowers
+            drawFlower(160, 60);
+            drawFlower(110, 95);
+            drawFlower(50, 140);
+        }
+
+        // Art 5: Ancient Coin
+        function drawCoin(ctx) {
+            const x = 100, y = 100, r = 80;
+            
+            // Coin Body
+            ctx.fillStyle = '#B87333'; // Bronze
+            ctx.strokeStyle = '#8B4513'; // Darker bronze
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.stroke();
+
+            // Square hole (using background color)
+            ctx.fillStyle = '#f0ead6';
+            ctx.strokeStyle = '#8B4513';
+            ctx.lineWidth = 2;
+            ctx.fillRect(x - 25, y - 25, 50, 50);
+            ctx.strokeRect(x - 25, y - 25, 50, 50);
+        }
+
+        // Art 6: Hand Fan
+        function drawFan(ctx) {
+            const x = 100, y = 180; // Base of fan
+            const r = 160; // Radius of fan
+            
+            // Fan paper
+            ctx.fillStyle = '#FFFFFF';
+            ctx.strokeStyle = '#5C2C06';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.arc(x, y, r, -Math.PI * 0.85, -Math.PI * 0.15);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+
+            // Ribs
+            ctx.strokeStyle = '#8B4513';
+            ctx.lineWidth = 1;
+            for (let i = 0; i <= 6; i++) {
+                const angle = -Math.PI * 0.85 + (i / 6) * (Math.PI * 0.7);
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(x + Math.cos(angle) * r, y + Math.sin(angle) * r);
+                ctx.stroke();
+            }
+            
+            // Base pin
+            ctx.fillStyle = '#5C2C06';
+            ctx.beginPath();
+            ctx.arc(x, y, 8, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        // Art 7: Moon Gate
+        function drawMoonGate(ctx) {
+            // Sky
+            ctx.fillStyle = '#a0c4d8';
+            ctx.fillRect(0, 0, 200, 160);
+            
+            // Ground
+            ctx.fillStyle = '#6a8a6b';
+            ctx.fillRect(0, 160, 200, 40);
+
+            // Path
+            ctx.fillStyle = '#c9b7a3';
+            ctx.beginPath();
+            ctx.moveTo(80, 160);
+            ctx.lineTo(70, 200);
+            ctx.lineTo(130, 200);
+            ctx.lineTo(120, 160);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Gate (stone)
+            ctx.fillStyle = '#b0b0b0';
+            ctx.strokeStyle = '#6c6c6c';
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.arc(100, 160, 80, Math.PI, 0); // Outer arc
+            ctx.arc(100, 160, 60, 0, Math.PI, true); // Inner arc
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+        }
+        
+        // Art 8: Mountain Character (山)
+        function drawMountain(ctx) {
+            ctx.strokeStyle = '#4a4a4a';
+            ctx.lineWidth = 15;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+
+            // Center peak
+            ctx.beginPath();
+            ctx.moveTo(100, 30);
+            ctx.lineTo(100, 170);
+            ctx.stroke();
+
+            // Left peak
+            ctx.beginPath();
+            ctx.moveTo(50, 70);
+            ctx.lineTo(50, 170);
+            ctx.stroke();
+
+            // Right peak
+            ctx.beginPath();
+            ctx.moveTo(150, 70);
+            ctx.lineTo(150, 170);
+            ctx.stroke();
+
+            // Base
+            ctx.lineWidth = 10;
+            ctx.beginPath();
+            ctx.moveTo(30, 170);
+            ctx.lineTo(170, 170);
+            ctx.stroke();
+        }
+
+    </script>
+
+</body>
+</html>
