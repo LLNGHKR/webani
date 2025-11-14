@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asian-Inspired SVG Art Combinations</title>
+    <style>
+        /* Using a serif font that evokes an elegant feel */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif', serif; 
+            background-color: #f7f3e9; /* Light parchment/tea paper color */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 25px;
+        }
+        div {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            padding: 15px;
+            border: 2px solid #d4c098; /* Subtle gold/bronze border */
+        }
+        h2 {
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            color: #4a2d0b; /* Darker brown for titles */
+            font-weight: normal;
+        }
+        svg {
+            border: 1px solid #e0e0e0;
+            background-color: #ffffff; /* Clean canvas */
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h2>1. Mountain & Water</h2>
+        <svg width="200" height="300">
+            <title>Mountain & Water</title>
+            <circle cx="100" cy="150" r="80" 
+                    fill="#fcf8e3"  /* Light jade/celadon */
+                    stroke="#a34433" /* Vermilion red outline */
+                    stroke-width="3" />
+            <line x1="20" y1="280" x2="180" y2="20" 
+                  stroke="#335544" /* Dark pine green */
+                  stroke-width="5" 
+                  stroke-linecap="round" />
+        </svg>
+    </div>
+
+    <div>
+        <h2>2. Earth & Gold</h2>
+        <svg width="200" height="300">
+            <title>Earth & Gold</title>
+            <rect x="25" y="100" width="150" height="100" 
+                  fill="#7a5230" /* Earthy brown */
+                  stroke="#4a2d0b" 
+                  stroke-width="2" />
+            <circle cx="100" cy="150" r="50" 
+                    fill="#ecc47e" /* Imperial yellow/gold */
+                    opacity="0.85" 
+                    stroke="#a34433" 
+                    stroke-width="1" />
+        </svg>
+    </div>
+
+    <div>
+        <h2>3. Clouds & Flowing Water</h2>
+        <svg width="200" height="300">
+            <title>Clouds & Flowing Water</title>
+            <circle cx="100" cy="100" r="60" 
+                    fill="#d7e7e3" /* Pale jade */
+                    stroke="#5a7a70" 
+                    stroke-width="2" />
+            <polyline points="20,200 50,250 100,220 150,250 180,200" 
+                      fill="none" 
+                      stroke="#426b8f" /* Deep serene blue */
+                      stroke-width="4" 
+                      stroke-dasharray="8 4" /> 
+        </svg>
+    </div>
+
+    <div>
+        <h2>4. Pavilion & Sky</h2>
+        <svg width="200" height="300">
+            <title>Pavilion & Sky</title>
+            <ellipse cx="100" cy="150" rx="90" ry="140" 
+                     fill="#e3f0f7" /* Sky blue/white */
+                     opacity="0.7" />
+            <polygon points="100,20 40,198 160,198" 
+                     fill="#a34433" /* Rich vermilion */
+                     stroke="#7a2e22" 
+                     stroke-width="2" />
+        </svg>
+    </div>
+
+    <div>
+        <h2>5. Ink & Jade</h2>
+        <svg width="200" height="300">
+            <title>Ink & Jade</title>
+            <rect x="10" y="50" width="180" height="200" 
+                  fill="#fcf8e3" /* Pale rice paper */
+                  stroke="#7a5230" 
+                  stroke-width="3" />
+            <line x1="0" y1="300" x2="200" y2="0" 
+                  stroke="#1c1c1c" /* Ink black */
+                  stroke-width="4" 
+                  stroke-linecap="round" />
+            <circle cx="100" cy="150" r="70" 
+                    fill="#c0d9bf" /* Soft jade green */
+                    stroke="#335544" 
+                    stroke-width="2" />
+        </svg>
+    </div>
+
+    <div>
+        <h2>6. Gold Star & Plum</h2>
+        <svg width="200" height="300">
+            <title>Gold Star & Plum</title>
+            <polygon points="100,10 130,90 190,90 140,140 160,210 100,170 40,210 60,140 10,90 70,90"
+                     fill="#ecc47e" /* Imperial gold */
+                     stroke="#a34433" 
+                     stroke-width="2" />
+            <polyline points="20,220 60,280 100,220 140,280 180,220" 
+                      fill="none" 
+                      stroke="#8a2e5d" /* Deep magenta/plum */
+                      stroke-width="4" />
+        </svg>
+    </div>
+
+    <div>
+        <h2>7. Heaven & Earth</h2>
+        <svg width="200" height="300">
+            <title>Heaven & Earth</title>
+            <rect x="0" y="0" width="200" height="300" 
+                  fill="#2c3e50" /* Deep indigo/night sky */ />
+            <ellipse cx="100" cy="150" rx="100" ry="60" 
+                     fill="#a34433" /* Fiery red/vermilion */
+                     opacity="0.8" />
+            <polygon points="100,10 180,80 20,80" 
+                     fill="#ecc47e" /* Gold */ />
+            <circle cx="100" cy="250" r="40" 
+                    fill="#fcf8e3" /* Pure white/moon glow */ />
+            <polyline points="0,0 100,150 0,300" 
+                      fill="none" 
+                      stroke="#d4c098" /* Soft gold */
+                      stroke-width="5" />
+        </svg>
+    </div>
+
+</body>
+</html>
